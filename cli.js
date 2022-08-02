@@ -1,5 +1,5 @@
-const { db } = require('./db');
-const Blog = require('./db/models/blog');
+const { db } = require('./util/db');
+const Blog = require('./models/blog');
 
 const main = async () => {
   db.connect();

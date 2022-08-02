@@ -1,5 +1,5 @@
-@url = http://localhost:3000/api/blogs
-@blogId = 1
+@url = http://localhost:3001/api/blogs
+@blogId = 3
 
 ## Get all blogs
 GET {{url}}
@@ -20,4 +20,19 @@ Content-Type: application/json
 
 ### Delete a blog
 DELETE {{url}}/{{blogId}}
+
+### Like a blog
+PUT {{url}}/{{blogId}}
 Content-Type: application/json
+
+{
+    "likes": 10
+}
+
+### Invalid like
+PUT {{url}}/{{blogId}}
+Content-Type: application/json
+
+{
+    "likes": -10
+}

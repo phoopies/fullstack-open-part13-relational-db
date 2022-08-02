@@ -1,9 +1,12 @@
 const express = require('express');
-const blogRouter = require('./routes/blog');
-const { db } = require('./db');
+const blogRouter = require('./controllers/blog');
+const { db } = require('./util/db');
 
-db.connect();
+const connectToDb = async () => {
+  await db.connect();
+};
 
+connectToDb();
 const app = express();
 
 app.use(express.json());
