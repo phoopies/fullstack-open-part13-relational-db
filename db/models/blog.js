@@ -16,7 +16,7 @@ Blog.init({
     type: DataTypes.TEXT,
   },
   title: {
-    type: DataTypes.DATE,
+    type: DataTypes.TEXT,
   },
   likes: {
     type: DataTypes.INTEGER,
@@ -29,5 +29,7 @@ Blog.init({
   timestamps: false,
   modelName: 'blog',
 });
+
+Blog.sync();
 
 module.exports = Blog;

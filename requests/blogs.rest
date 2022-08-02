@@ -1,0 +1,23 @@
+@url = http://localhost:3000/api/blogs
+@blogId = 1
+
+## Get all blogs
+GET {{url}}
+
+### Get a blog
+GET {{url}}/{{blogId}}
+
+### Create new blog
+POST {{url}}
+Content-Type: application/json
+
+{
+    "title": "String",
+    "author": "String",
+    "url": "String",
+    "likes": 1
+}
+
+### Delete a blog
+DELETE {{url}}/{{blogId}}
+Content-Type: application/json
