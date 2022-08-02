@@ -1,0 +1,41 @@
+{
+  "name": "relational-databases",
+  "version": "1.0.0",
+  "description": "part 13 of mooc fullstack course",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "cli": "node cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phoopies/fullstack-open-part13-relational-db.git"
+  },
+  "keywords": [
+    "sql",
+    "js",
+    "mooc",
+    "fullstack",
+    "node"
+  ],
+  "author": "Phoop aka Stefu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phoopies/fullstack-open-part13-relational-db/issues"
+  },
+  "homepage": "https://github.com/phoopies/fullstack-open-part13-relational-db#readme",
+  "devDependencies": {
+    "eslint": "^8.21.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "pg": "^8.7.3",
+    "sequelize": "^6.21.3"
+  }
+}
