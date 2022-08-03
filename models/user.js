@@ -13,6 +13,9 @@ User.init(
       type: DataTypes.TEXT,
       unique: true,
       allowNull: false,
+      validate: {
+        isEmail: { msg: 'Username should be an email' },
+      },
     },
     name: {
       type: DataTypes.TEXT,

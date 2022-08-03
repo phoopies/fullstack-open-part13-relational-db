@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const router = require('express').Router();
-const tokenExtractor = require('../middleware/tokenExtractor');
+const userExtractor = require('../middleware/userExtractor');
 const { User } = require('../models');
 
 router.get('/', async (_req, res) => {
@@ -27,9 +27,9 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.put('/:username', tokenExtractor, async (req, res) => {
+router.put('/:username', userExtractor, async (req, res) => {
   const { username } = req.params;
-  const user = await User.findByPk(req.decodedToken.id, User.findOptions);
+  const { user } = req;
   if (user.username !== username) {
     return res.status(401).json({
       error: 'Can only edit own name',
