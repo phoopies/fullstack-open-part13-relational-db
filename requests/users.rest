@@ -1,5 +1,5 @@
 @url = http://localhost:3001/api
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAdGVzdC50ZXN0IiwiaWQiOjcsImlhdCI6MTY1OTUxNjExOX0.8raEXMeqYsctSk_hYgyiy4dZlsNWuDJOmX749uVbNzU
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAdGVzdC50ZXN0IiwiaWQiOjEsImlhdCI6MTY1OTUyOTg3OX0.KcjarXPU-MoIiPcq16MHWD3dGj2qJzu2ufeWptYfR-w
 
 ## Get all
 GET {{url}}/users

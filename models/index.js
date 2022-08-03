@@ -4,11 +4,6 @@ const User = require('./user');
 User.hasMany(Blog);
 Blog.belongsTo(User);
 
-const syncOptions = { alter: true };
-
-Blog.sync(syncOptions);
-User.sync(syncOptions);
-
 Blog.findOptions = {
   attributes: { exclude: ['userId'] },
   include: {

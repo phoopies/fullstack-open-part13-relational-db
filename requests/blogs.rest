@@ -1,6 +1,6 @@
 @url = http://localhost:3001/api/blogs
-@blogId = 13
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAdGVzdC50ZXN0IiwiaWQiOjcsImlhdCI6MTY1OTUxNjExOX0.8raEXMeqYsctSk_hYgyiy4dZlsNWuDJOmX749uVbNzU
+@blogId = 1
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAdGVzdC50ZXN0IiwiaWQiOjEsImlhdCI6MTY1OTUyOTg3OX0.KcjarXPU-MoIiPcq16MHWD3dGj2qJzu2ufeWptYfR-w
 
 ## Get all blogs
 GET {{url}}
@@ -20,7 +20,8 @@ Authorization: bearer {{token}}
     "title": "this is React, okay!",
     "author": "asd",
     "url": "String",
-    "likes": 1
+    "likes": 1,
+    "year": 2022
 }
 
 ### Creating an invalid blog

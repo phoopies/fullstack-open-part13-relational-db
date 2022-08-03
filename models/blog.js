@@ -19,6 +19,14 @@ Blog.init(
     title: {
       type: DataTypes.TEXT,
     },
+    year: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        min: { msg: 'Year should be greater than 1990', args: 1991 },
+        max: { msg: `Year can not be greater than the current year: ${new Date().getFullYear()}`, args: new Date().getFullYear() },
+      },
+    },
     likes: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
@@ -31,7 +39,7 @@ Blog.init(
   {
     sequelize,
     underscored: true,
-    timestamps: false,
+    timestamps: true,
     modelName: 'blog',
   },
 );
