@@ -1,7 +1,33 @@
 const Blog = require('./blog');
+const User = require('./user');
 
-Blog.sync();
+User.hasMany(Blog);
+Blog.belongsTo(User);
+
+const syncOptions = { alter: true };
+
+Blog.sync(syncOptions);
+User.sync(syncOptions);
+
+Blog.findOptions = {
+  attributes: { exclude: ['userId'] },
+  include: {
+    model: User,
+    attributes: ['name'],
+  },
+};
+
+User.findOptions = {
+  include: {
+    model: Blog,
+    attributes: { exclude: ['userId'] },
+  },
+  attributes: {
+    exclude: ['passwordHash'],
+  },
+};
 
 module.exports = {
   Blog,
+  User,
 };

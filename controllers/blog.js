@@ -1,16 +1,21 @@
 const express = require('express');
 const blogFinder = require('../middleware/blogFinder');
-const Blog = require('../models/blog');
+const tokenExtractor = require('../middleware/tokenExtractor');
+const { User, Blog } = require('../models');
 
 const router = express.Router();
 
 router.get('/', async (_req, res) => {
-  const blogs = await Blog.findAll();
+  const blogs = await Blog.findAll(Blog.findOptions);
   res.json(blogs);
 });
 
-router.post('/', async (req, res) => {
-  const blog = await Blog.create(req.body);
+router.post('/', tokenExtractor, async (req, res) => {
+  const user = await User.findByPk(req.decodedToken.id);
+  const blog = await Blog.create({
+    ...req.body,
+    userId: user.id,
+  });
   res.json(blog);
 });
 

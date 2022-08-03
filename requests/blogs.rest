@@ -1,5 +1,6 @@
 @url = http://localhost:3001/api/blogs
-@blogId = 7
+@blogId = 11
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RlcjEiLCJpZCI6NSwiaWF0IjoxNjU5NTExMzg1fQ.iTo5KTn2uTA9gH4pjhkynm8DAEqQfndJg58ZlXf-9qg
 
 ## Get all blogs
 GET {{url}}
@@ -10,12 +11,13 @@ GET {{url}}/{{blogId}}
 ### Create new blog
 POST {{url}}
 Content-Type: application/json
+Authorization: bearer {{token}}
 
 {
     "title": "String",
     "author": "String",
     "url": "String",
-    "likes": "asd"
+    "likes": 1
 }
 
 ### Creating an invalid blog

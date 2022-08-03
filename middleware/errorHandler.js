@@ -9,6 +9,8 @@ const errorHandler = (error, _req, res, next) => {
       return res.status(400).send({ error: 'Something went wrong' });
     case 'SequelizeValidationError':
       return res.status(400).send({ error: 'Malformed object' });
+    case 'SequelizeUniqueConstraintError':
+      return res.status(400).send({ error: 'Object field not unique' });
     default:
       return next(error);
   }
