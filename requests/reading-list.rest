@@ -1,0 +1,10 @@
+@url = http://localhost:3001/api/readinglists
+
+## Create new
+POST {{url}}
+Content-Type: application/json
+
+{
+    "blog_id": 1,
+    "user_id": 1
+}

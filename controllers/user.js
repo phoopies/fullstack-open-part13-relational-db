@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const router = require('express').Router();
 const userExtractor = require('../middleware/userExtractor');
-const { User } = require('../models');
+const { User, Blog } = require('../models');
 
 router.get('/', async (_req, res) => {
   const users = await User.findAll(User.findOptions);
@@ -19,7 +19,20 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const user = await User.findByPk(req.params.id, User.findOptions);
+  const user = await User.findByPk(req.params.id, {
+    ...User.findOptions,
+    include: [
+      ...[User.findOptions.include],
+      {
+        model: Blog,
+        as: 'toRead',
+        attributes: { exclude: ['userId', 'createdAt', 'updatedAt'] },
+        through: {
+          attributes: [],
+        },
+      },
+    ],
+  });
   if (user) {
     res.json(user);
   } else {

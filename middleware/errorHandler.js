@@ -13,6 +13,8 @@ const errorHandler = (error, _req, res, next) => {
       return res.status(400).send({ error: 'Object field not unique' });
     case 'JsonWebTokenError':
       return res.status(401).send({ error: error.message });
+    case 'SequelizeForeignKeyConstraintError':
+      return res.status(400).send({ error: 'Something went wrong' });
     default:
       return next(error);
   }
