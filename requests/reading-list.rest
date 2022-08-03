@@ -1,4 +1,8 @@
 @url = http://localhost:3001/api/readinglists
+@id = 1
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RAdGVzdC50ZXN0IiwiaWQiOjEsImlhdCI6MTY1OTUzMjM3NX0.eVajzyy875Z5BSIrpyMpNqKRzosIDJWCJcjZYmliDbU
+## Get all
+GET {{url}}
 
 ## Create new
 POST {{url}}
@@ -7,4 +11,13 @@ Content-Type: application/json
 {
     "blog_id": 1,
     "user_id": 1
+}
+
+### Mark as read/unread new
+PUT {{url}}/{{id}}
+Content-Type: application/json
+Authorization: bearer {{token}}
+
+{
+    "read": true
 }
