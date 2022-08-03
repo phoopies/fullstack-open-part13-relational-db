@@ -1,5 +1,5 @@
 @url = http://localhost:3001/api/blogs
-@blogId = 3
+@blogId = 7
 
 ## Get all blogs
 GET {{url}}
@@ -14,6 +14,16 @@ Content-Type: application/json
 {
     "title": "String",
     "author": "String",
+    "url": "String",
+    "likes": "asd"
+}
+
+### Creating an invalid blog
+POST {{url}}
+Content-Type: application/json
+
+{
+    "title": "String",
     "url": "String",
     "likes": 1
 }
