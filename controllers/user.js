@@ -54,7 +54,7 @@ router.put('/:username', userExtractor, async (req, res) => {
   const { user } = req;
   if (user.username !== username) {
     return res.status(401).json({
-      error: 'Can only edit own name',
+      error: 'Can only edit own user',
     });
   }
   user.name = req.body.name;
