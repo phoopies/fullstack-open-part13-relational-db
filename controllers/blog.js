@@ -1,4 +1,5 @@
 const express = require('express');
+const { Op } = require('sequelize');
 const blogFinder = require('../middleware/blogFinder');
 const userExtractor = require('../middleware/userExtractor');
 const { Blog } = require('../models');
@@ -6,8 +7,18 @@ const { userOwnsBlog } = require('../util/misc');
 
 const router = express.Router();
 
-router.get('/', async (_req, res) => {
-  const blogs = await Blog.findAll(Blog.findOptions);
+router.get('/', async (req, res) => {
+  let where = { };
+  if (req.query.search) {
+    const filter = { [Op.iLike]: `%${req.query.search}%` };
+    where = {
+      [Op.or]: [{ title: filter }, { author: filter }],
+    };
+  }
+
+  const order = [['likes', 'DESC']];
+
+  const blogs = await Blog.findAll({ ...Blog.findOptions, where, order });
   res.json(blogs);
 });
 

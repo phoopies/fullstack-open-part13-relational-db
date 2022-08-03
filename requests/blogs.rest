@@ -5,6 +5,9 @@
 ## Get all blogs
 GET {{url}}
 
+### Get all blogs with query parameter
+GET {{url}}?search=react
+
 ### Get a blog
 GET {{url}}/{{blogId}}
 
@@ -14,8 +17,8 @@ Content-Type: application/json
 Authorization: bearer {{token}}
 
 {
-    "title": "NEW",
-    "author": "String",
+    "title": "this is React, okay!",
+    "author": "asd",
     "url": "String",
     "likes": 1
 }
